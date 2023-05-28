@@ -18,7 +18,6 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rigid.velocity = Vector2
         if (rigid.velocity.magnitude > maxVelocity)
         {
             rigid.velocity = Vector3.ClampMagnitude(rigid.velocity, maxVelocity);
