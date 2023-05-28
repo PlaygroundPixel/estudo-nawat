@@ -9,7 +9,7 @@ public class RotatePoint : MonoBehaviour
      
     void Start()
     {
-        mainCam = GameObject.FindGameObjectWithTag("Player").GetComponent<Camera>();
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         
     }
 
