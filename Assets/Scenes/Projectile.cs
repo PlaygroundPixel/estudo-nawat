@@ -1,26 +1,42 @@
 using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+namespace Scenes
 {
-    public Rigidbody2D rigid;
-
-    public float maxVelocity = 15f;
-	public float speedBall;
-    
-    // Start is called before the first frame update
-    void Start()
+    public class Projectile : MonoBehaviour
     {
+        public static Rigidbody2D Rigid;
+        private Camera _mainCam;
+        private Vector3 _mousePos;
+
+        public float maxVelocity = 15f;
+        public float speedBall;
+        public float force;
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (rigid.velocity.magnitude > maxVelocity)
+        
+        // Start is called before the first frame update
+        void Start()
         {
-            rigid.velocity = Vector3.ClampMagnitude(rigid.velocity, maxVelocity);
+            
         }
+
+        // Update is called once per frame
+        void Update()
+        {
+            CapVelocity();
+        }
+        IEnumerator CapVelocity()
+        {
+            if (Rigid.velocity.magnitude > maxVelocity)
+            { 
+                Rigid.velocity = Vector3.ClampMagnitude(Rigid.velocity, maxVelocity);
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+        
+
+
     }
 }

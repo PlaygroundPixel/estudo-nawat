@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Scenes;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class LifeText : MonoBehaviour
 {
-    public int numTextBlock => Bloco.lifeBlock;
+    private int numText => Bloco.LifeBlock;
 
     [SerializeField] TextMeshPro textBlock;
     
@@ -19,8 +20,8 @@ public class LifeText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textBlock.text = "" + numTextBlock;
-        if( numTextBlock == 0){
+        textBlock.text = "" + numText;
+        if( numText == 0){
             Destroy(gameObject);
         }
         

@@ -1,27 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Bloco : MonoBehaviour
+namespace Scenes
 {
-    public static int lifeBlock = 30;
-
-    void OnCollisionEnter2D(Collision2D col)
+    public class Bloco : MonoBehaviour
     {
-        if(col.gameObject){
-            lifeBlock--;
+        public static int LifeBlock = 30;
+
+        void OnCollisionEnter2D(Collision2D col)
+        {
+            if(col.gameObject){
+                LifeBlock--;
+            }
         }
-    }
-    void Start()
-    {
+        void Start()
+        {
         
-    }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(lifeBlock == 0){
-            Destroy(gameObject);
+        // Update is called once per frame
+        void Update()
+        {
+            if(LifeBlock == 0){
+                Destroy(gameObject);
+            }
         }
     }
 }
